@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aorta-dc"
+version = "0.1.0"
+description = "Attacker-side responder for the AORTA delegated-TGT capture attack (DNS + CLDAP + TGS-only KDC + built-in SMB ticket capture)"
+readme = "README.md"
+authors = [{ name = "ahos6 (0xNDI)" }]
+requires-python = ">=3.11"
+dependencies = [
+    "impacket>=0.13.0",
+    "dnspython>=2.6.0",
+    "ldap3>=2.9.1",
+    "pyasn1>=0.6.0",
+]
+
+[project.scripts]
+aorta-dc = "aorta_dc.main:main"
+
+[tool.setuptools.packages.find]
+include = ["aorta_dc*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.18",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM"]
+ignore = ["E501"]

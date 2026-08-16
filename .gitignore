@@ -1,0 +1,13 @@
+__pycache__/
+*.ccache
+DC$@*
+*krbtgt@*
+*.keytab
+*.pcapng
+state*.json
+*.log
+*.pid
+evil_aorta.egg-info/
+build/
+dist/
+*.egg-info/
